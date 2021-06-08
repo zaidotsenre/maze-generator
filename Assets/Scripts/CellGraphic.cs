@@ -8,17 +8,13 @@ public class CellGraphic : MonoBehaviour
     [SerializeField] GameObject rightWall;
     [SerializeField] GameObject bottomWall;
     [SerializeField] GameObject leftWall;
-
+    [SerializeField] GameObject playerPrefab;
     [SerializeField] MeshRenderer floorRenderer;
 
-    [SerializeField] GameObject playerPrefab;
-
-    GameObject player;
-
-    public Cell CellData 
-    { 
-        set 
-        { 
+    public Cell CellData
+    {
+        set
+        {
             cellData = value;
             topWall.SetActive(!cellData.top);
             rightWall.SetActive(!cellData.right);
@@ -26,8 +22,10 @@ public class CellGraphic : MonoBehaviour
             leftWall.SetActive(!cellData.left);
             if (cellData.exit)
                 AddCollider();
-        } 
+        }
     }
+
+    GameObject player;
     Cell cellData;
 
     private void Start()
@@ -37,7 +35,6 @@ public class CellGraphic : MonoBehaviour
             floorRenderer.material.color = Color.white;
             player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
