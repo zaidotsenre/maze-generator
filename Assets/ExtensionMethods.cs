@@ -16,4 +16,10 @@ public static class ExtensionMethods
             list[n] = value;
         }
     }
+
+    public static T Random<T>(this IList<T> list)
+    {
+        int i = rng.Next(0, list.Count);
+        return list[i];
+    }
 }

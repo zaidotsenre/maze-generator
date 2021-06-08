@@ -11,6 +11,10 @@ public class CellGraphic : MonoBehaviour
 
     [SerializeField] MeshRenderer floorRenderer;
 
+    [SerializeField] GameObject playerPrefab;
+
+    GameObject player;
+
     public Cell CellData 
     { 
         set 
@@ -20,13 +24,41 @@ public class CellGraphic : MonoBehaviour
             rightWall.SetActive(!cellData.right);
             bottomWall.SetActive(!cellData.bottom);
             leftWall.SetActive(!cellData.left);
+            if (cellData.exit)
+                AddCollider();
         } 
     }
     Cell cellData;
 
-    private void OnMouseOver()
+    private void Start()
     {
-        if (Input.GetMouseButton(0))
-            floorRenderer.material.color = Color.blue;
+        if (cellData.entry)
+        {
+            floorRenderer.material.color = Color.white;
+            player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (cellData.exit)
+        {
+            EventBroker.onWin.Invoke();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(cellData.entry)
+            Destroy(player);
+    }
+
+    void AddCollider()
+    {
+        BoxCollider collider = gameObject.AddComponent<BoxCollider>();
+        collider.size = new Vector3(3.6f, 2.0f, 3.6f);
+        collider.center = Vector3.up;
+        collider.isTrigger = true;
     }
 }
