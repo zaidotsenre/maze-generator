@@ -9,7 +9,6 @@ public class CellGraphic : MonoBehaviour
     [SerializeField] GameObject bottomWall;
     [SerializeField] GameObject leftWall;
     [SerializeField] GameObject playerPrefab;
-    [SerializeField] MeshRenderer floorRenderer;
 
     public Cell CellData
     {
@@ -32,7 +31,6 @@ public class CellGraphic : MonoBehaviour
     {
         if (cellData.entry)
         {
-            floorRenderer.material.color = Color.white;
             player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
         }
     }

@@ -31,8 +31,9 @@ public class GameManager : MonoBehaviour
         victoryPanel.SetActive(true);
     }
 
-    void MakeMaze()
+    public void MakeMaze()
     {
+        victoryPanel.SetActive(false);
         maze.Delete();
         maze.Make(mazeSize);
     }
