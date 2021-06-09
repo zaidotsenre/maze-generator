@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] Text mazesCompletedUI;
+
     private void Start()
     {
         EventBroker.onWin.AddListener(Win);
+        mazesCompletedUI.text = PlayerPrefs.GetInt("completed").ToString();
     }
 
     void Win()
     {
         int completed = PlayerPrefs.GetInt("completed");
         PlayerPrefs.SetInt("completed", ++completed);
-        Debug.Log("Mazes completed: " + PlayerPrefs.GetInt("completed"));
+        mazesCompletedUI.text = completed.ToString();
     }
 }
