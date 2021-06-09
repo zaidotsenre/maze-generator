@@ -5,44 +5,33 @@ using UnityEngine;
 public class Maze : MonoBehaviour
 {
     [SerializeField] GameObject cellPrefab;
-    [SerializeField] int mazeSize = 25;
     [SerializeField] float cellSize = 4;
 
     List<GameObject> cells;
-
-    private void Start()
+    
+    public void Make(int size)
     {
-        Make(new Blueprint(mazeSize));
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            Delete();
-            Make(new Blueprint(25));
-        }       
-    }
-
-    void Make(Blueprint blueprint)
-    {
+        Blueprint blueprint = new Blueprint(size);
         cells = new List<GameObject>();
-        for (int i = 0; i < blueprint.Size; i++)
+        for (int i = 0; i < size; i++)
         {
-            for (int j = 0; j < blueprint.Size; j++)
+            for (int j = 0; j < size; j++)
             {
                 Vector3 pos = new Vector3(j * cellSize, 0, i * cellSize);
                 GameObject cell = Instantiate(cellPrefab, pos, Quaternion.identity);
-                cell.GetComponent<CellGraphic>().CellData = blueprint.Cells[i * blueprint.Size + j];
+                cell.GetComponent<CellGraphic>().CellData = blueprint.Cells[i * size + j];
                 cells.Add(cell);
             }
         }
     }
 
-    void Delete()
+    public void Delete()
     {
-        foreach (GameObject cell in cells)
-            Destroy(cell);
-        cells.Clear();
+        if(cells != null)
+        {
+            foreach (GameObject cell in cells)
+                Destroy(cell);
+            cells.Clear();
+        } 
     }
 }
