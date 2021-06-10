@@ -9,6 +9,9 @@ public class CellGraphic : MonoBehaviour
     [SerializeField] GameObject bottomWall;
     [SerializeField] GameObject leftWall;
     [SerializeField] GameObject playerPrefab;
+    [SerializeField] GameObject exitMarker;
+
+    Transform thisTransform;
 
     public Cell CellData
     {
@@ -29,9 +32,15 @@ public class CellGraphic : MonoBehaviour
 
     private void Start()
     {
+        thisTransform = transform;
+
         if (cellData.entry)
         {
-            player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+            player = Instantiate(playerPrefab, thisTransform.position, Quaternion.identity);
+        }
+        if (cellData.exit)
+        {
+            Instantiate(exitMarker, thisTransform.position, Quaternion.Euler(-90, 0, 0), thisTransform);
         }
     }
 

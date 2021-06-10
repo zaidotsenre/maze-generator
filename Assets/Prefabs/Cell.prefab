@@ -432,8 +432,8 @@ MonoBehaviour:
   rightWall: {fileID: 89221776}
   bottomWall: {fileID: 1181479008}
   leftWall: {fileID: 2088464487}
-  floorRenderer: {fileID: 8399333280418187619}
   playerPrefab: {fileID: 471107847410572856, guid: ed9e4f87d4a23bc41b3c7f6437879400, type: 3}
+  exitMarker: {fileID: 8194827270105096283, guid: 3b2a4810d22d3ae4282b7d2163c892db, type: 3}
 --- !u!1 &8399333280418187630
 GameObject:
   m_ObjectHideFlags: 0
