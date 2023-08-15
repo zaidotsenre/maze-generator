@@ -1,4 +1,4 @@
-# Laberintos
+# Mazes
 A simple maze-solving game built with Unity.
 
 Language: C#
