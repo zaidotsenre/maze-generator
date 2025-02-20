@@ -7,4 +7,4 @@ This game implements the Randomized Depth-First Search algorithm to generate two
 
 Randomized Depth-First Search -> https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_depth-first_search
 
-Play the game at -> https://play.unity.com/mg/other/webgl-builds-62065
+[Play the game on Unity Play](https://play.unity.com/en/games/44194055-4bf8-4526-9419-0569313f55ee/laberintos)
