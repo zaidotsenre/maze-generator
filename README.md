@@ -4,5 +4,3 @@ An implementation of the Randomized Depth-First Search algorithm to generate two
 [See the live demo on Unity Play](https://play.unity.com/en/games/44194055-4bf8-4526-9419-0569313f55ee/laberintos)
 
 [Learn more about Randomized Depth-First Search](https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_depth-first_search)
-
-![image](https://github.com/user-attachments/assets/6836947f-88f4-4694-8147-ef5834669d1c)
